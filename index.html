@@ -2,8 +2,9 @@
 <html>
 
 <head>
-  <title>Jie Zhu's Home</title>
-  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Jie Zhu - Home</title>
   <style type="text/css">
     /* GitHub stylesheet for MarkdownPad (http://markdownpad.com) */
     /* Author: JIE ZHU
@@ -103,14 +104,31 @@
 =============================================================================*/
 
     body {
-      font-family: Helvetica, arial, freesans, clean, sans-serif;
-      font-size: 14px;
-      line-height: 1.6;
-      color: #333;
-      background-color: #fff;
-      padding: 20px;
-      max-width: 960px;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "SF Pro Text",
+        Helvetica, arial, freesans, clean, sans-serif;
+      font-size: 15px;
+      line-height: 1.7;
+      color: #1f2933;
+      background: radial-gradient(circle at top, #f0f4ff 0, #f9fafb 45%, #ffffff 100%);
+      padding: 24px 16px 40px;
+    }
+
+    .page {
+      max-width: 880px;
       margin: 0 auto;
+      background: rgba(255, 255, 255, 0.9);
+      backdrop-filter: blur(12px);
+      box-shadow:
+        0 18px 45px rgba(15, 23, 42, 0.12),
+        0 0 0 1px rgba(148, 163, 184, 0.35);
+      border-radius: 18px;
+      padding: 32px 28px 32px;
+    }
+
+    @media (min-width: 768px) {
+      .page {
+        padding: 40px 40px 44px;
+      }
     }
 
     body>*:first-child {
@@ -165,18 +183,33 @@
     }
 
     h1 {
-      font-size: 28px;
-      color: #000;
+      font-size: 30px;
+      letter-spacing: 0.02em;
+      color: #111827;
     }
 
     h2 {
-      font-size: 24px;
-      border-bottom: 1px solid #ccc;
-      color: #000;
+      font-size: 20px;
+      border-bottom: none;
+      color: #111827;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      position: relative;
+      padding-bottom: 4px;
+    }
+
+    h2::after {
+      content: "";
+      display: block;
+      height: 2px;
+      width: 48px;
+      background: linear-gradient(90deg, #3b82f6, #6366f1);
+      border-radius: 999px;
     }
 
     h3 {
-      font-size: 18px;
+      font-size: 16px;
     }
 
     h4 {
@@ -226,12 +259,16 @@
 =============================================================================*/
 
     a {
-      color: #4183C4;
+      color: #2563eb;
       text-decoration: none;
+      transition: color 0.15s ease, text-decoration-color 0.15s ease;
+      text-decoration-color: transparent;
     }
 
     a:hover {
+      color: #1d4ed8;
       text-decoration: underline;
+      text-decoration-color: rgba(37, 99, 235, 0.7);
     }
 
     /* LISTS
@@ -416,42 +453,392 @@
     img {
       max-width: 100%
     }
+
+    /* Layout */
+
+    .header {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      align-items: flex-start;
+      margin-bottom: 32px;
+    }
+
+    @media (min-width: 640px) {
+      .header {
+        flex-direction: row;
+        align-items: center;
+        gap: 20px;
+      }
+    }
+
+    .avatar-wrapper {
+      flex-shrink: 0;
+    }
+
+    .avatar {
+      width: 160px;
+      height: 160px;
+      border-radius: 24px;
+      object-fit: cover;
+      box-shadow:
+        0 16px 28px rgba(15, 23, 42, 0.18),
+        0 0 0 1px rgba(148, 163, 184, 0.45);
+    }
+
+    @media (min-width: 640px) {
+      .avatar {
+        width: 190px;
+        height: 190px;
+      }
+    }
+
+    .name-row {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: baseline;
+      gap: 8px 12px;
+      margin-bottom: 6px;
+    }
+
+    .tagline {
+      margin-top: 4px;
+      color: #4b5563;
+      font-size: 15px;
+    }
+
+    .meta {
+      margin-top: 8px;
+      color: #6b7280;
+      font-size: 14px;
+    }
+
+    .meta-item + .meta-item {
+      margin-left: 12px;
+    }
+
+    .section {
+      margin-top: 28px;
+    }
+
+    /* Experience */
+
+    .experience-list {
+      list-style: none;
+      padding-left: 0;
+      margin-top: 10px;
+    }
+
+    .experience-item {
+      margin-bottom: 18px;
+    }
+
+    .experience-header {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 4px 10px;
+    }
+
+    .experience-main {
+      font-size: 14px;
+    }
+
+    .experience-role {
+      font-weight: 600;
+      color: #111827;
+    }
+
+    .experience-company {
+      color: #4b5563;
+    }
+
+    .experience-meta {
+      font-size: 13px;
+      color: #6b7280;
+      white-space: nowrap;
+    }
+
+    .experience-meta span + span {
+      margin-left: 6px;
+    }
+
+    .experience-desc {
+      margin-top: 4px;
+      font-size: 13px;
+    }
+
+    /* Publications */
+
+    .pub-list {
+      list-style: none;
+      padding-left: 0;
+    }
+
+    .pub-list li {
+      position: relative;
+      padding-left: 18px;
+      margin-bottom: 10px;
+    }
+
+    .pub-list li::before {
+      content: "•";
+      position: absolute;
+      left: 0;
+      top: 0;
+      color: #9ca3af;
+    }
+
+    .pub-venue {
+      color: #4b5563;
+      font-size: 13px;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      padding: 2px 8px;
+      border-radius: 999px;
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.03em;
+      text-transform: uppercase;
+      background: rgba(59, 130, 246, 0.08);
+      color: #1d4ed8;
+      border: 1px solid rgba(59, 130, 246, 0.25);
+    }
+
+    .badge--secondary {
+      background: rgba(99, 102, 241, 0.06);
+      color: #4f46e5;
+      border-color: rgba(129, 140, 248, 0.35);
+    }
+
+    .contact-links {
+      margin-top: 6px;
+    }
+
+    .contact-links a + a {
+      margin-left: 10px;
+    }
+
+    .muted {
+      color: #6b7280;
+    }
+
+    .lang-switch {
+      margin-left: auto;
+      font-size: 13px;
+      color: #6b7280;
+    }
+
+    .lang-switch a {
+      font-size: 13px;
+    }
+
+    .lang-switch span {
+      margin: 0 4px;
+    }
+
+    .footer-note {
+      margin-top: 30px;
+      font-size: 12px;
+      color: #9ca3af;
+    }
   </style>
 </head>
 
 <body>
-  <p><img src="photo2.jpg" alt="Image of Jie" width="220" height="300" /></p>
-  <h1>Jie Zhu</h1>
-  <p>Currently working at Alibaba Group, Tongyi Dianjin Team</p>
-  <p>zhujie951121@gmail.com</p>
-  <h2>Bio</h2>
-  <p>Jie Zhu received his M.S. degree from Soochow University, China, in 2021. He has been working at Alibaba Group
-    since then as a large language model algorithm expert in the Tongyi Dianjin Team. He is currently pursuing a Ph.D.,
-    with research interests in large language models and their applications in the financial domain.
-  </p>
-  <h2>Research Interests</h2>
-  <ul>
-    <li>Large Language Model</li>
-    <li>Natural Language Processing (all kinds of tasks)</li>
-  </ul>
-  <h2>Recent Pubs (<a href="https://scholar.google.com.hk/citations?hl=en&user=i8l6R6AAAAAJ">Google Scholar</a>)</h2>
-  <ul>
-    <li> <b>Jie Zhu</b>, Huaixia Dou, et al. Evaluating, Synthesizing, and Enhancing for Customer Support Conversation. In Proc. of AAAI 2026.</li>
-    <li> <b>Jie Zhu</b>, Junhui Li, Yalong Wen, et al. M3FinMeeting: A Multilingual, Multi-Sector, and Multi-Task
-      Financial Meeting Understanding Evaluation Dataset. In Proc. of ACL 2025.</li>
-    <li> <b>Jie Zhu</b>, Junhui Li, Yalong Wen, Lifan Guo. Benchmarking Large Language Models on CFLUE - A Chinese
-      Financial Language Understanding Evaluation Dataset. In Proc. of ACL 2024.</li>
-    <li> 第二届中国自然语言生成与智能写作大会（NLGIW 2023）,面向事实一致性的生成评测,自动指标第一名</li>
-    <li> <b>Jie Zhu</b>, Suwen Liu, et al. Interpretable Sentiment Analysis Based on UIE. Journal of Chinese Information
-      Processing. 2023, 37(11): 151-157.</li>
-    <li> 第四届语言与智能技术竞赛 (LIC 2022), 情感可解释评测, 第一名. </li>
-    <li> 第九届全国社会媒体处理大会 (SMP 2020), 知识驱动的多轮对话竞赛, 二等奖. </li>
-    <li> <b>Jie Zhu</b>, Junhui Li. AMR-to-Text Generation with Target Syntax. In Proc. of CCL 2020. </li>
-    <li> <b>Jie Zhu</b>, Junhui Li. AMR-to-Text Generation based on Transformer. In Proc. of CCL 2019. </li>
-    <li> <b>Jie Zhu</b>, Junhui Li, Muhua Zhu, Longhua Qian, Min Zhang, Guodong Zhou. Modeling Graph Structure in
-      Transformer for Better AMR-to-Text Generation. In Proc. of EMNLP 2019.</li>
-  </ul>
+  <div class="page">
+    <header class="header">
+      <div class="avatar-wrapper">
+        <img src="photo2.jpg" alt="Image of Jie" class="avatar" />
+      </div>
+      <div>
+        <div class="name-row">
+          <h1>Jie Zhu</h1>
+          <span class="badge">LLM &amp; NLP</span>
+        </div>
+        <p class="tagline">Algorithm Expert, Qwen Dianjin Team, Alibaba Group</p>
+        <p class="meta">
+          <span class="meta-item">Ph.D. Candidate</span>
+          <span class="meta-item">Financial AI &amp; LLM Applications</span>
+        </p>
+        <p class="contact-links">
+          <a href="mailto:zhujie951121@gmail.com">zhujie951121@gmail.com</a>
+          ·
+          <a href="https://scholar.google.com.hk/citations?hl=en&user=i8l6R6AAAAAJ" target="_blank"
+            rel="noreferrer">Google Scholar</a>
+        </p>
+      </div>
+    </header>
 
+    <main>
+      <section class="section">
+        <h2>Bio</h2>
+        <p>
+          Jie Zhu received his M.S. degree from Soochow University, China, in 2021. He has been working at Alibaba Group
+          since then as a large language model algorithm expert in the Qwen Dianjin Team. He is currently pursuing a
+          Ph.D., with research interests in large language models and their applications in the financial domain.
+        </p>
+      </section>
+
+      <section class="section">
+        <h2>Research Interests</h2>
+        <ul>
+          <li>Large Language Models</li>
+          <li>Natural Language Processing (various tasks)</li>
+          <li>Financial AI &amp; financial text understanding</li>
+        </ul>
+      </section>
+
+      <section class="section">
+        <h2>Work Experience</h2>
+        <ul class="experience-list">
+          <li class="experience-item">
+            <div class="experience-header">
+              <div class="experience-main">
+                <div class="experience-role">LLM Algorithm Expert</div>
+                <div class="experience-company">Alibaba Cloud – Qwen Dianjin (通义点金)</div>
+              </div>
+              <div class="experience-meta">
+                <span>Hangzhou, China</span>
+                <span>·</span>
+                <span>Jul. 2021 – Present</span>
+              </div>
+            </div>
+            <p class="experience-desc muted">
+              Working on large language models and financial AI applications in the Qwen Dianjin Team.
+            </p>
+          </li>
+
+          <li class="experience-item">
+            <div class="experience-header">
+              <div class="experience-main">
+                <div class="experience-role">NLP Algorithm Engineer (Intern)</div>
+                <div class="experience-company">Alibaba DAMO Academy (达摩院)</div>
+              </div>
+              <div class="experience-meta">
+                <span>Hangzhou, China</span>
+                <span>·</span>
+                <span>Nov. 2019 – Mar. 2020</span>
+              </div>
+            </div>
+            <p class="experience-desc muted">
+              Worked on machine translation intervention and word alignment for Transformer models.
+            </p>
+          </li>
+
+          <li class="experience-item">
+            <div class="experience-header">
+              <div class="experience-main">
+                <div class="experience-role">NLP Researcher (Intern)</div>
+                <div class="experience-company">NetEase Fuxi AI Lab (网易伏羲实验室)</div>
+              </div>
+              <div class="experience-meta">
+                <span>Hangzhou, China</span>
+                <span>·</span>
+                <span>Jun. 2020 – Sep. 2020</span>
+              </div>
+            </div>
+            <p class="experience-desc muted">
+              Researched controllable text generation for knowledge-enhanced multi-turn dialogue, improving diversity,
+              factual consistency, and controllability of GPT-style conversational models via external knowledge
+              injection.
+            </p>
+          </li>
+        </ul>
+      </section>
+
+      <section class="section">
+        <h2>Recent Publications</h2>
+        <p class="muted">
+          Full list is available on
+          <a href="https://scholar.google.com.hk/citations?hl=en&user=i8l6R6AAAAAJ" target="_blank"
+            rel="noreferrer">Google Scholar</a>.
+        </p>
+        <ul class="pub-list">
+          <li>
+            <b>Jie Zhu</b>, Huaixia Dou, Junhui Li, Lifan Guo, Feng Chen, Chi Zhang, Fang Kong.
+            Evaluating, Synthesizing, and Enhancing for Customer Support Conversation.
+            <span class="pub-venue">In Proc. of AAAI 2026.</span>
+          </li>
+          <li>
+            <b>Jie Zhu</b>, Yimin Tian, Boyang Li, et al.
+            FinMCP-Bench: Benchmarking LLM Agents for Real-World Financial Tool Use under the Model Context Protocol.
+            <span class="pub-venue">In Proc. of ICASSP 2026.</span>
+          </li>
+          <li>
+            <b>Jie Zhu</b>, Yuanchen Zhou, Shuo Jiang, Junhui Li, Lifan Guo, Feng Chen, Chi Zhang, Fang Kong.
+            CARE: Cognitive-reasoning Augmented Reinforcement for Emotional Support Conversation.
+            <span class="pub-venue">In Proc. of ICASSP 2026.</span>
+          </li>
+          <li>
+            <b>Jie Zhu</b>, Junhui Li, Yalong Wen, Junhui Li, Lifan Guo, Feng Chen.
+            M<sup>3</sup>FinMeeting: A Multilingual, Multi-Sector, and Multi-Task Financial Meeting Understanding Evaluation Dataset.
+            <span class="pub-venue">In Proc. of ACL 2025.</span>
+          </li>
+          <li>
+            <b>Jie Zhu</b>, Qian Chen, Huaixia Dou, Junhui Li, Lifan Guo, Feng Chen, Chi Zhang.
+            Dianjin-r1: Evaluating and enhancing financial reasoning in large language models.
+            <span class="pub-venue">arXiv preprint arXiv:2504.15716, 2025.</span>
+          </li>
+          <li>
+            Yuanchen Zhou, Shuo Jiang, <b>Jie Zhu</b>, Junhui Li, Lifan Guo, Feng Chen, Chi Zhang.
+            Fin-prm: A domain-specialized process reward model for financial reasoning in large language models.
+            <span class="pub-venue">arXiv preprint arXiv:2508.15202, 2025.</span>
+          </li>
+          <li>
+            Huaixia Dou, Xinyu Tian, Xin Lyu, <b>Jie Zhu</b>, Junhui Li, Lifan Guo.
+            Speech translation refinement using large language models.
+            <span class="pub-venue">arXiv preprint arXiv:2501.15090, 2025.</span>
+          </li>
+          <li>
+            <b>Jie Zhu</b>, Junhui Li, Yalong Wen, Lifan Guo.
+            Benchmarking Large Language Models on CFLUE - A Chinese Financial Language Understanding Evaluation Dataset.
+            <span class="pub-venue">In Proc. of ACL 2024.</span>
+          </li>
+          <li>
+            <span class="badge badge--secondary">Competition</span>
+            第二届中国自然语言生成与智能写作大会（NLGIW 2023）, 面向事实一致性的生成评测, 自动指标第一名。
+          </li>
+          <li>
+            <b>Jie Zhu</b>, Suwen Liu, Junhui Li, Lifan Guo, Haifeng Zeng, Feng Chen.
+            Interpretable Sentiment Analysis Based on UIE.
+            <span class="pub-venue">Journal of Chinese Information Processing, 2023, 37(11): 151-157.</span>
+          </li>
+          <li>
+            <span class="badge badge--secondary">Competition</span>
+            第四届语言与智能技术竞赛 (LIC 2022), 情感可解释评测, 第一名。
+          </li>
+          <li>
+            <span class="badge badge--secondary">Competition</span>
+            第九届全国社会媒体处理大会 (SMP 2020), 知识驱动的多轮对话竞赛, 二等奖。
+          </li>
+          <li>
+            <b>Jie Zhu</b>, Junhui Li.
+            AMR-to-Text Generation with Target Syntax.
+            <span class="pub-venue">In Proc. of CCL 2020.</span>
+          </li>
+          <li>
+            <b>Jie Zhu</b>, Junhui Li.
+            AMR-to-Text Generation based on Transformer.
+            <span class="pub-venue">Journal of Chinese Information Processing, 34(10): 10-18, 2020.</span>
+          </li>
+          <li>
+            <b>Jie Zhu</b>, Junhui Li, Muhua Zhu, Longhua Qian, Min Zhang, Guodong Zhou.
+            Modeling Graph Structure in Transformer for Better AMR-to-Text Generation.
+            <span class="pub-venue">In Proc. of EMNLP 2019.</span>
+          </li>
+        </ul>
+      </section>
+
+      <p class="footer-note">
+        Last updated: Mar 2026.
+      </p>
+    </main>
+  </div>
 </body>
 
 </html>
